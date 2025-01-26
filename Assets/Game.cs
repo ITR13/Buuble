@@ -353,6 +353,7 @@ public class Game : MonoBehaviour
             bubble.localScale = new Vector3(MinSize, MinSize, MinSize);
             var direction = (inRange[closestIndex].position - bubble.position).normalized;
             var bulletPosition = bubble.transform.position + direction / 2;
+            inRange.RemoveAt(closestIndex);
 
             var maxAngle = 5;
             if (bubble.gameObject.name.Contains("Sniper"))
@@ -366,18 +367,16 @@ public class Game : MonoBehaviour
                 var rotation = Quaternion.Euler(0, 0, randomAngle);
 
                 var child = Instantiate(bubble.GetChild(0), bulletParent);
-                child.transform.position = bulletPosition;
+                var r = Random.insideUnitCircle / 10;
+                child.transform.position = bulletPosition + new Vector3(r.x, r.y, 0);
                 child.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 child.name = bubble.name;
                 child.gameObject.AddComponent<Rigidbody2D>().linearVelocity = rotation * direction * speed;
                 child.gameObject.AddComponent<CircleCollider2D>().isTrigger = true;
                 child.gameObject.AddComponent<BulletScript>();
                 child.gameObject.layer = LayerMask.NameToLayer("Bullet");
-                inRange.RemoveAt(closestIndex);
-
 
                 Destroy(child.gameObject, 10f);
-                break;
             }
         }
     }
