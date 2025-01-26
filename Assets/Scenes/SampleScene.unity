@@ -650,7 +650,7 @@ MonoBehaviour:
   - CountToChange: 6
     Prerequisite: {fileID: 7561744691700337307, guid: e5d46be90f425134db0dee717c2487a7, type: 3}
     Prefab: {fileID: 7561744691700337307, guid: 604daaa3392da59429c07b204965104c, type: 3}
-  - CountToChange: 12
+  - CountToChange: 32
     Prerequisite: {fileID: 7561744691700337307, guid: 604daaa3392da59429c07b204965104c, type: 3}
     Prefab: {fileID: 7561744691700337307, guid: e4ee912bf599cd742ac0381e5e406622, type: 3}
   - CountToChange: 5
@@ -665,7 +665,7 @@ MonoBehaviour:
   - CountToChange: 10
     Prerequisite: {fileID: 7561744691700337307, guid: e5d46be90f425134db0dee717c2487a7, type: 3}
     Prefab: {fileID: 7561744691700337307, guid: c4e9ac6111d37d6448205e6eb75742a1, type: 3}
-  - CountToChange: 10
+  - CountToChange: 35
     Prerequisite: {fileID: 7561744691700337307, guid: c4e9ac6111d37d6448205e6eb75742a1, type: 3}
     Prefab: {fileID: 7561744691700337307, guid: 7f52632a4e37a214c83a8b4316adecf6, type: 3}
   - CountToChange: 5
@@ -674,7 +674,7 @@ MonoBehaviour:
   - CountToChange: 10
     Prerequisite: {fileID: 7561744691700337307, guid: a8926df9f708e1f4c943293927ad6d7a, type: 3}
     Prefab: {fileID: 7561744691700337307, guid: 065c3b9799efd01429d4cb5322f2609b, type: 3}
-  - CountToChange: 5
+  - CountToChange: 3
     Prerequisite: {fileID: 7561744691700337307, guid: 543665aa562302041869ca0e1a8f5852, type: 3}
     Prefab: {fileID: 7561744691700337307, guid: 68e4456fb1864d2419f3f3d86905885c, type: 3}
 --- !u!4 &926967353
