@@ -541,14 +541,14 @@ public class Game : MonoBehaviour
         }
 
         var upgrades = new List<Upgrade>();
-        foreach (var upgrade in _upgrades)
+        for (var i = 0; i < _upgrades.Length; i++)
         {
-            var upgradeCopy = upgrade;
+            var upgrade = _upgrades[i];
             counts.TryGetValue(upgrade.Prerequisite, out var count);
-            if (upgrade.Prerequisite == _bubblePrefab && count == 0)
+            if (upgrade.Prerequisite == _bubblePrefab && count == 0 && upgrade.Prefab != _shooterPrefab)
             {
                 counts.TryGetValue(_shooterPrefab, out count);
-                upgradeCopy.Prerequisite = _shooterPrefab;
+                upgrade.Prerequisite = _shooterPrefab;
             }
 
             if (count < upgrade.CountToChange) continue;
