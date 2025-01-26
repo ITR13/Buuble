@@ -85,7 +85,6 @@ public class Game : MonoBehaviour
                 break;
             case "PlayRound":
                 Time.timeScale = _timescale;
-                _cameraDistance = -60;
                 _canvas.SetActive(false);
                 PlayRound();
                 UpdateBubbles(true);
@@ -251,15 +250,29 @@ public class Game : MonoBehaviour
             return;
         }
 
+        var closest = float.MaxValue;
         var inRange = new List<Transform>();
         foreach (Transform enemy in enemyParent)
         {
             var distance = enemy.position.sqrMagnitude;
             if (distance > 30 * 30) continue;
             inRange.Add(enemy);
+            closest = Mathf.Min(distance, closest);
         }
 
-        if (inRange.Count == 0) return;
+        if (closest >= 18 * 18)
+        {
+            _cameraDistance -= Time.deltaTime * 5;
+        }
+        else
+        {
+            _cameraDistance = Mathf.Min(_cameraDistance + Time.deltaTime * 5, -60);
+        }
+
+        if (inRange.Count == 0)
+        {
+            return;
+        }
 
         foreach (Transform bubble in bubbleParent)
         {
